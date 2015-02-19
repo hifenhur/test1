@@ -4,5 +4,25 @@
     <string name="app_name">TotenClient</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_buy_credit">BuyCredit</string>
+    <string name="title_activity_buy_ticket">BuyTicket</string>
+    <string name="terms_title">Termos de Uso</string>
+    <string name="accept_terms">Aceito os Termos</string>
+    <string name="cancel">cancelar</string>
+    <string name="not_acept">Não Aceito</string>
+    <string name="auto_debit_explain">O Débito automático consiste em que se por acaso você esqueça de fazer checkin ao estacionar, quando for feita a verificação pelo Monitor de tránsito se dê inicio automatico na redução de tempo que você tenha em sua conta</string>
+    <string name="auto_debit_title">Débito automático</string>
+    <string name="accept_auto_debit">Aceitar débito automático</string>
+    <string name="not_acept_auto_debit">Não aceitar débito automático</string>
+    <string name="buy_success_title">Sucesso</string>
+    <string name="buy_success_message">Sua compra foi realizada, para finalizar prossiga para o caixa para efetuar o pagamento</string>
+    <string name="success_button">OK</string>
+    <string name="register_success_title">Usuário registrado com sucesso</string>
+    <string name="register_success_message">O Usuário foi registrado, Recarregue sua conta e utilize a partir do aplicativo da Expark no seu smartphone</string>
+    <string name="cant_be_empty">Esse campo não pode ficar em branco</string>
+    <string name="cant_be_different">As senhas não são iguais, tente novamente</string>
+    <string name="invalid_cpf">CPF Invalido</string>
+    <string name="not_accepted">Você precisa aceitar os termos para poder se cadastrar</string>
+
 
 </resources>
