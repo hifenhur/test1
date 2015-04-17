@@ -13,7 +13,6 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/money_input"
-        android:hint="10,00R$"
         android:layout_below="@+id/textView10"
         android:layout_alignStart="@+id/cpf_input" />
 

@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
@@ -147,7 +149,12 @@ public class BuyCredit extends ActionBarActivity {
             e.printStackTrace();
         }
 
-        String url = GlobalParameters.getInstance().defaultUrl+"/pdv_sales/b39cf2a7-b1a0-4e60-99d3-06d9bf1562aa.json";
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String pdv_uuid = sharedPref.getString(getString(R.string.pref_pdv_uuid),
+                getString(R.string.pref_pdv_uuid_default));
+
+        String url = GlobalParameters.getInstance().defaultUrl+"/pdv_sales/"+pdv_uuid+".json";
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST, url, params, new Response.Listener<JSONObject>() {
 

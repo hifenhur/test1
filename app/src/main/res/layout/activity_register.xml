@@ -25,21 +25,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Email"
-                android:id="@+id/textView" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:ems="10"
-                android:id="@+id/email"
-                android:hint="@string/prompt_email" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Nome"
                 android:id="@+id/textView2" />
 
@@ -55,31 +40,71 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Telefone"
-                android:id="@+id/textView3" />
+                android:text="Email"
+                android:id="@+id/textView" />
 
-            <mask.PhoneEditText
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
+                android:inputType="textEmailAddress"
                 android:ems="10"
-                android:id="@+id/phone"
-                android:hint="Telefone" />
+                android:id="@+id/email"
+                android:hint="@string/prompt_email"
+                android:nextFocusDown="@+id/cpf_input"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="CPF"
-                android:id="@+id/textView4" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-            <mask.CpfEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:ems="10"
-                android:id="@+id/cpf_input"
-                android:hint="CPF" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="CPF"
+                        android:id="@+id/textView4" />
+
+                    <mask.CpfEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:ems="10"
+                        android:id="@+id/cpf_input"
+                        android:hint="CPF"
+                        android:nextFocusDown="@+id/phone"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Telefone"
+                        android:id="@+id/textView3" />
+
+                    <mask.PhoneEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:ems="10"
+                        android:id="@+id/phone"
+                        android:hint="Telefone"
+                        android:nextFocusDown="@+id/password"
+                        />
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -110,10 +135,57 @@
                 android:id="@+id/password_confirm"
                 android:hint="Repetir senha" />
 
+            <Space
+                android:layout_width="20px"
+                android:layout_height="20px" />
+
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:id="@android:id/list"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:layoutMode="opticalBounds"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Adicionar Placa"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:id="@+id/textView13" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:weightSum="1">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:ems="10"
+                    android:id="@+id/plate_to_add"
+                    android:hint="Placa"
+                    android:layout_weight="0.98" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="62dp"
+                    android:text="Adicionar Placa"
+                    android:id="@+id/button5"
+                    android:textColor="#ffffffff"
+                    android:onClick="addPlate" />
+
+            </LinearLayout>
+
             <CheckBox
                 android:layout_width="192dp"
                 android:layout_height="wrap_content"
-                android:text="Débito automático"
+                android:text="Pagamento automático"
                 android:id="@+id/auto_debit"
                 android:layout_gravity="center_horizontal"
                 android:checked="false"
@@ -139,7 +211,8 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
                 android:layout_weight="7.44"
-                android:singleLine="false" />
+                android:singleLine="false"
+                android:onClick="attemptLogin" />
 
         </LinearLayout>
     </ScrollView>

@@ -23,6 +23,20 @@
     <string name="cant_be_different">As senhas não são iguais, tente novamente</string>
     <string name="invalid_cpf">CPF Invalido</string>
     <string name="not_accepted">Você precisa aceitar os termos para poder se cadastrar</string>
+    <string name="car">Carro</string>
+    <string name="motorcycle">Moto</string>
+    <string name="pref_location_default" translatable="false" >Goiania</string>
+    <string name="pref_pdv_uuid" translatable="false">UUID do Vendedor</string>
+    <string name="pref_location_label">Localização</string>
+    <string name="pref_temperature_units_key">temperature_unit</string>
+    <string name="pref_temperature_units_title">Unidade de Temperatura</string>
+    <string name="pref_temperature_units_default">metric</string>
+    <string name="preferred_location">Localização Preferida</string>
+    <string name="title_activity_settings">Preferencias</string>
+    <string name="pref_pdv_uuid_label">UUID do Vendedor</string>
+    <string name="signin">Versao</string>
+    <string name="version">versao</string>
+    <string name="pref_pdv_uuid_default">b39cf2a7-b1a0-4e60-99d3-06d9bf1562aa</string>
 
 
 </resources>

@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#ffe7e8ea">
+    android:background="#ffe7e8ea"
+    android:clickable="false">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -15,23 +16,23 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="200sp"
-        android:text="Cadastrar"
+        android:layout_height="150sp"
+        android:text="Cadastrar Na Área Azul"
         android:id="@+id/button"
         android:layout_weight="1"
         android:textColor="#ffffffff"
         android:textSize="30dp"
         android:onClick="launchSignIn"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
-        android:layout_above="@+id/button3"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="79dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignStart="@+id/button2" />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="200sp"
-        android:text="Comprar Crédito"
+        android:layout_height="150sp"
+        android:text="Comprar Créditos Pré-Pago - CPF"
         android:id="@+id/button2"
         android:layout_weight="1"
         android:textColor="#ffffffff"
@@ -40,13 +41,13 @@
         android:onClick="launchCreditBuy"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
-        android:layout_below="@+id/button3"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="200sp"
-        android:text="Comprar Ticket"
+        android:layout_height="150sp"
+        android:text="Comprar Estacionamento Avulso"
         android:id="@+id/button3"
         android:layout_weight="1"
         android:textColor="#ffffffff"
@@ -55,7 +56,32 @@
         android:onClick="launchTicketBuy"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/button6"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="150sp"
+        android:text="Comprar Créditos Pré-Pago - Cartão"
+        android:id="@+id/button6"
+        android:layout_weight="1"
+        android:textColor="#ffffffff"
+        android:textSize="30dp"
+        android:layout_gravity="center_vertical"
+        android:onClick="launchCreditBuy"
+        android:layout_marginLeft="20sp"
+        android:layout_below="@+id/button2"
+        android:layout_alignEnd="@+id/button2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button7"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/imageView"
+        android:onClick="launchSettings"
+        android:background="#ffe7e8ea"
+        android:clickable="true" />
 
 </RelativeLayout>

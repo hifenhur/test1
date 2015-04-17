@@ -3,6 +3,7 @@ package expark.com.totenclient;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.app.ProgressDialog;
@@ -13,7 +14,6 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -23,15 +23,22 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -49,6 +56,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import mask.MaskTextWatcher;
+import mask.PlaqueMask;
 import models.CPF;
 import models.GlobalParameters;
 
@@ -80,8 +89,12 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
     private EditText mPhoneEditText;
     private EditText mCpfEditText;
     private EditText mNameView;
+    private EditText mPlacaEditText;
     private CheckBox mAcceptanceTerms;
+    private ArrayList<String> mPlates;
     ArrayList<View> mViews;
+    AlertDialog.Builder mSuccessDialog;
+    AlertDialog.Builder mFailedDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,13 +104,14 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
         android.support.v7.app.ActionBar action=getSupportActionBar();
         action.setDisplayHomeAsUpEnabled(true);
         action.setTitle("Cadastrar ");
-
+        mPlates = new ArrayList<>();
 
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.email);
         mNameView = (EditText) findViewById(R.id.name);
         mCpfEditText = (EditText) findViewById(R.id.cpf_input);
         mPhoneEditText = (EditText) findViewById(R.id.phone);
+        mPlacaEditText = (EditText)findViewById(R.id.plate_to_add);
         mAcceptanceTerms = (CheckBox) findViewById(R.id.acceptance_terms);
 
 
@@ -115,27 +129,40 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
 
 
 
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
-                    return true;
-                }
-                return false;
-            }
-        });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptLogin();
-            }
-        });
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        mPlacaEditText.addTextChangedListener(PlaqueMask.insert(mPlacaEditText));
+
+        setAlertDialogs();
+    }
+
+    public void setAlertDialogs(){
+        final Context ctx = this.getApplicationContext();
+        /** Criando Dialog para sucesso**/
+        mSuccessDialog = new AlertDialog.Builder(this);
+        mSuccessDialog.setTitle(R.string.register_success_title)
+                .setMessage(R.string.register_success_message)
+                .setPositiveButton(R.string.success_button, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(ctx, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+        mSuccessDialog.create();
+
+        /** Criando Dialog para sucesso**/
+        mFailedDialog = new AlertDialog.Builder(this);
+        mFailedDialog.setTitle("Erro")
+                .setPositiveButton(R.string.success_button, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+
+        mFailedDialog.create();
     }
 
     @Override
@@ -174,7 +201,7 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
-    public void attemptLogin() {
+    public void attemptLogin(View view) {
 
 
         boolean cancel = false;
@@ -363,7 +390,7 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
     }
 
 
-    public void registerRequest(){
+    public void registerRequest() {
         RequestQueue queue = Volley.newRequestQueue(this);
 
         final Context ctx = this.getApplicationContext();
@@ -371,6 +398,18 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
         JSONObject client = new JSONObject();
         JSONObject userAttributes = new JSONObject();
         JSONObject params = new JSONObject();
+        JSONArray platesAttributes = new JSONArray();
+
+        for (String plate:mPlates){
+            JSONObject plateObject = new JSONObject();
+            try {
+                plateObject.put("plate", plate);
+                platesAttributes.put(plateObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
 
         try {
             userAttributes.put("login", mPhoneEditText.getText().toString().replaceAll("\\D+", ""));
@@ -383,33 +422,15 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
             client.put("name", mNameView.getText().toString());
 
             client.put("user_attributes", userAttributes);
+            if (platesAttributes.length() > 0) {
+                client.put("plates_attributes", platesAttributes);
+            }
             params.put("client", client);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        /** Criando Dialog para sucesso**/
-        final AlertDialog.Builder successDialog = new AlertDialog.Builder(this);
-        successDialog.setTitle(R.string.register_success_title)
-                .setMessage(R.string.register_success_message)
-                .setPositiveButton(R.string.success_button, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(ctx, MainActivity.class);
-                        startActivity(intent);
-                    }
-                });
 
-        successDialog.create();
-
-        /** Criando Dialog para sucesso**/
-        final AlertDialog.Builder failedDialog = new AlertDialog.Builder(this);
-        failedDialog.setTitle("Erro")
-                .setPositiveButton(R.string.success_button, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                    }
-                });
-
-        failedDialog.create();
 
 
         mLoadingDialog = ProgressDialog.show(this, "",
@@ -425,12 +446,12 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
                 try {
                     Log.d("Resposta", response.toString());
                     if (Boolean.valueOf(response.getBoolean("success"))){
-                        successDialog.show();
+                        mSuccessDialog.show();
                     }else{
 
-                        String stringErrors = "";
+                        String stringErrors = response.get("errors").toString();
 
-                        failedDialog.setMessage(stringErrors).show();
+                        mFailedDialog.setMessage(stringErrors).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -456,6 +477,45 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
     }
 
 
+    public void addPlate(View view){
+        String plate = mPlacaEditText.getText().toString();
+        boolean add = false;
+        if (mPlates.size() < 1){
+            add = true;
+        }else{
+            for (String iplate:mPlates){
+                if (plate.equals(iplate)){
+                    add = false;
+                }else{
+                    add = true;
+                }
+            }
+        }
+
+        if (add){
+            mPlates.add(plate);
+            mPlacaEditText.setText("");
+            reloadPlatesList();
+        }else{
+            mFailedDialog.setMessage("Essa placa já foi adcionada").show();
+        }
+
+
+
+    }
+
+    private void reloadPlatesList(){
+        ListView platesView = (ListView)findViewById(android.R.id.list);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, mPlates);
+        platesView.setAdapter(adapter);
+
+
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) platesView.getLayoutParams();
+        params.height = mPlates.size() * 50;
+        platesView.setLayoutParams(params);
+
+
+    }
 
 
 }
