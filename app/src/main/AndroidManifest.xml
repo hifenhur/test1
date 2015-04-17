@@ -29,20 +29,24 @@
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
-            android:name=".BuyCredit"
+            android:name=".BuyCreditActivity"
             android:label="@string/title_activity_buy_credit" >
         </activity>
         <activity
-            android:name=".BuyTicket"
+            android:name=".BuyTicketActivity"
             android:label="@string/title_activity_buy_ticket" >
         </activity>
-        <activity android:name=".SettingsActivity"
+        <activity
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="expark.com.totenclient.MainActivity" />
-
+        </activity>
+        <activity
+            android:name=".QrcodeCardActivity"
+            android:label="@string/title_activity_qrcode_card" >
         </activity>
     </application>
 

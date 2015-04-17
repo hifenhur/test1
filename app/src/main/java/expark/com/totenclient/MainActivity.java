@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,12 +38,17 @@ public class MainActivity extends Activity {
     }
 
     public void launchTicketBuy(View view){
-        Intent intent = new Intent(this, BuyTicket.class);
+        Intent intent = new Intent(this, BuyTicketActivity.class);
         startActivity(intent);
     }
 
     public void launchCreditBuy(View view){
-        Intent intent = new Intent(this, BuyCredit.class);
+        Intent intent = new Intent(this, BuyCreditActivity.class);
+        startActivity(intent);
+    }
+
+    public void launchQrcodeCard(View view){
+        Intent intent = new Intent(this, QrcodeCardActivity.class);
         startActivity(intent);
     }
 

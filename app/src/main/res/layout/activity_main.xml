@@ -68,7 +68,7 @@
         android:textColor="#ffffffff"
         android:textSize="30dp"
         android:layout_gravity="center_vertical"
-        android:onClick="launchCreditBuy"
+        android:onClick="launchQrcodeCard"
         android:layout_marginLeft="20sp"
         android:layout_below="@+id/button2"
         android:layout_alignEnd="@+id/button2" />

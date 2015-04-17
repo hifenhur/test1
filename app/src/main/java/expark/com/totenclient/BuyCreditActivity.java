@@ -34,7 +34,7 @@ import mask.MoneyTextWatcher;
 import models.GlobalParameters;
 
 
-public class BuyCredit extends ActionBarActivity {
+public class BuyCreditActivity extends ActionBarActivity {
     EditText mMoneyTextView;
     EditText mCpf;
     ProgressDialog mLoadingDialog;

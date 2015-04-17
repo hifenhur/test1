@@ -37,7 +37,7 @@ import mask.PlaqueMask;
 import models.GlobalParameters;
 
 
-public class BuyTicket extends ActionBarActivity {
+public class BuyTicketActivity extends ActionBarActivity {
     EditText mPlacaEditText;
     EditText mSpaceEditText;
     RadioButton mCarRadio;

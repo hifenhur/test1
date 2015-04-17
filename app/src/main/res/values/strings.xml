@@ -37,6 +37,7 @@
     <string name="signin">Versao</string>
     <string name="version">versao</string>
     <string name="pref_pdv_uuid_default">b39cf2a7-b1a0-4e60-99d3-06d9bf1562aa</string>
+    <string name="title_activity_qrcode_card">QrcodeCard</string>
 
 
 </resources>
