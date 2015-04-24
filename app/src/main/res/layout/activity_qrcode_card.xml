@@ -6,15 +6,15 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="expark.com.totenclient.QrcodeCardActivity">
 
-    <Button
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan"
-        android:id="@+id/button8"
-        android:layout_marginTop="43dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="scanQrcode" />
+        android:id="@+id/imageView3"
+        android:layout_alignTop="@+id/qrdecoderview"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/textView14"
+        android:layout_alignEnd="@+id/textView14"
+        android:background="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,11 +25,78 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="56dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/qrcode_option_text"
+        android:id="@+id/textView14"
+        android:textColor="#ffff850a"
+        android:layout_below="@+id/qrdecoderview"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardNumber"
+        android:layout_below="@+id/exampleTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="290sp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Numero do Cartao"
+        android:id="@+id/textView15"
+        android:layout_alignBaseline="@+id/exampleTextView"
+        android:layout_alignBottom="@+id/exampleTextView"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="290sp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/money_input"
+        android:layout_below="@+id/textView16"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="290sp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Valor da Compra"
+        android:id="@+id/textView16"
+        android:layout_below="@+id/cardNumber"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
     <com.dlazaro66.qrcodereaderview.QRCodeReaderView
         android:id="@+id/qrdecoderview"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:text="@string/card_recharge"
+        android:id="@+id/button8"
+        android:textColor="@android:color/white"
+        android:onClick="buyRequisition"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_above="@+id/textView14"
+        android:layout_alignEnd="@+id/textView14"
+        android:layout_alignTop="@+id/qrdecoderview"
+        android:layout_toEndOf="@+id/qrdecoderview"
+        android:src="@drawable/qrcode_arrow" />
 
 </RelativeLayout>

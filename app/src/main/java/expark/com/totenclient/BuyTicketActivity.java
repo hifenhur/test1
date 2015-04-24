@@ -63,7 +63,7 @@ public class BuyTicketActivity extends ActionBarActivity {
 
         android.support.v7.app.ActionBar action=getSupportActionBar();
         action.setDisplayHomeAsUpEnabled(true);
-        action.setTitle("Comprar Ticket");
+        action.setTitle(R.string.back_title);
         mPlacaEditText = (EditText)findViewById(R.id.plate_input);
 
         mPlacaEditText.addTextChangedListener(PlaqueMask.insert(mPlacaEditText));

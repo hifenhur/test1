@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ExparkTotenClient.iml" filepath="$PROJECT_DIR$/ExparkTotenClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TotenClient.iml" filepath="$PROJECT_DIR$/TotenClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
