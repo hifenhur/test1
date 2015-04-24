@@ -77,6 +77,7 @@ public class MainActivity extends Activity {
                                 Log.d("log in", "entrou");
                                 Intent intent = new Intent(context, SettingsActivity.class);
                                 startActivity(intent);
+                                title_click = 0;
                             }
 
                         }
@@ -84,6 +85,7 @@ public class MainActivity extends Activity {
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
+                            title_click = 0;
                         }
                     });
             builder.create().show();

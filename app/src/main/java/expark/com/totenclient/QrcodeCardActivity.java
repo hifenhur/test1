@@ -25,7 +25,6 @@ public class QrcodeCardActivity extends ActionBarActivity implements QRCodeReade
         mydecoderview = (QRCodeReaderView) findViewById(R.id.qrdecoderview);
         mydecoderview.setOnQRCodeReadListener(this);
 
-
         myTextView = (TextView) findViewById(R.id.exampleTextView);
     }
 
