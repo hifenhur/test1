@@ -54,7 +54,7 @@ public class BuyCreditActivity extends ActionBarActivity {
 
         android.support.v7.app.ActionBar action=getSupportActionBar();
         action.setDisplayHomeAsUpEnabled(true);
-        action.setTitle("Comprar Crédito");
+        action.setTitle(R.string.back_title);
     }
 
 

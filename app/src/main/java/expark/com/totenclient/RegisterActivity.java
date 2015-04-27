@@ -103,7 +103,7 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
 
         android.support.v7.app.ActionBar action=getSupportActionBar();
         action.setDisplayHomeAsUpEnabled(true);
-        action.setTitle("Cadastrar ");
+        action.setTitle(R.string.back_title);
         mPlates = new ArrayList<>();
 
         // Set up the login form.

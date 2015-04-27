@@ -32,7 +32,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="150sp"
-        android:text="Comprar Créditos Pré-Pago - CPF"
+        android:text="Comprar Créditos para uso de Débito Automático e Manual"
         android:id="@+id/button2"
         android:layout_weight="1"
         android:textColor="#ffffffff"
@@ -47,31 +47,17 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="150sp"
-        android:text="Comprar Estacionamento Avulso"
+        android:text="Recarga Cartão Pre-Pago"
         android:id="@+id/button3"
-        android:layout_weight="1"
-        android:textColor="#ffffffff"
-        android:textSize="30dp"
-        android:layout_gravity="center_vertical"
-        android:onClick="launchTicketBuy"
-        android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
-        android:layout_below="@+id/button6"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="150sp"
-        android:text="Comprar Créditos Pré-Pago - Cartão"
-        android:id="@+id/button6"
         android:layout_weight="1"
         android:textColor="#ffffffff"
         android:textSize="30dp"
         android:layout_gravity="center_vertical"
         android:onClick="launchQrcodeCard"
         android:layout_marginLeft="20sp"
-        android:layout_below="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:layout_marginRight="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button2" />
 
     <Button
         android:layout_width="wrap_content"
@@ -83,5 +69,20 @@
         android:onClick="launchSettings"
         android:background="#ffe7e8ea"
         android:clickable="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="150sp"
+        android:text="Comprar Ticket Avulso"
+        android:id="@+id/button6"
+        android:layout_weight="1"
+        android:textColor="#ffffffff"
+        android:textSize="30dp"
+        android:layout_gravity="center_vertical"
+        android:onClick="launchTicketBuy"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:layout_below="@+id/button3"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
