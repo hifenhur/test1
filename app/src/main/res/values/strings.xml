@@ -15,7 +15,7 @@
     <string name="accept_auto_debit">Aceitar débito automático</string>
     <string name="not_acept_auto_debit">Não aceitar débito automático</string>
     <string name="buy_success_title">Sucesso</string>
-    <string name="buy_success_message">Sua compra foi realizada, para finalizar prossiga para o caixa para efetuar o pagamento</string>
+    <string name="buy_success_message">Sua compra foi realizada, para finalizar prossiga para o caixa para efetuar o pagamento e validação</string>
     <string name="success_button">OK</string>
     <string name="register_success_title">Usuário registrado com sucesso</string>
     <string name="register_success_message">O Usuário foi registrado, Recarregue sua conta e utilize a partir do aplicativo da Expark no seu smartphone</string>
@@ -38,7 +38,7 @@
     <string name="version">versao</string>
     <string name="pref_pdv_uuid_default">b39cf2a7-b1a0-4e60-99d3-06d9bf1562aa</string>
     <string name="title_activity_qrcode_card">QrcodeCard</string>
-    <string name="qrcode_option_text">Posicione o QRCODE do seu cartão na camera ou insira o número do cartão no formulario abaixo</string>
+    <string name="qrcode_option_text">Posicione o QRCODE do seu cartão no quadro acima ou insira o número do cartão no formulario abaixo</string>
     <string name="qrcode_inserted">O Número do Cartão foi preenchido, agora insira quanto crédito deseja comprar</string>
     <string name="card_recharge">Recarregar Cartão</string>
     <string name="back_title">Voltar</string>

@@ -469,7 +469,7 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
         });
 
         jsObjRequest.setRetryPolicy(new DefaultRetryPolicy(
-                5000,
+                10000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
