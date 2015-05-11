@@ -455,6 +455,7 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    mFailedDialog.setMessage(R.string.error_network).show();
 
                 }
 
@@ -464,6 +465,7 @@ public class RegisterActivity extends ActionBarActivity implements LoaderCallbac
             @Override
             public void onErrorResponse(VolleyError error) {
                 mLoadingDialog.dismiss();
+                mFailedDialog.setMessage(R.string.error_network).show();
 
             }
         });

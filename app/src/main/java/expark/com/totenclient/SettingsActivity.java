@@ -9,6 +9,18 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.util.Log;
+
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import models.GlobalParameters;
 
 /**
  * A {@link android.preference.PreferenceActivity} that presents a set of application settings.
@@ -50,7 +62,7 @@ public class SettingsActivity extends PreferenceActivity
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object value) {
+    public boolean onPreferenceChange(final Preference preference, Object value) {
         String stringValue = value.toString();
 
         if (preference instanceof ListPreference) {
@@ -64,6 +76,7 @@ public class SettingsActivity extends PreferenceActivity
         } else {
             // For other preferences, set the summary to the value's simple string representation.
             preference.setSummary(stringValue);
+
         }
         return true;
     }

@@ -285,6 +285,7 @@ public class BuyTicketActivity extends ActionBarActivity {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        failedDialog.setMessage(R.string.error_network).show();
 
                     }
 
@@ -294,6 +295,7 @@ public class BuyTicketActivity extends ActionBarActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     mLoadingDialog.dismiss();
+                    failedDialog.setMessage(R.string.error_network).show();
 
                 }
             });

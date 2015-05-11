@@ -170,6 +170,7 @@ public class BuyCreditActivity extends ActionBarActivity {
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    failedDialog.setMessage(R.string.error_network).show();
 
                 }
 
@@ -180,6 +181,7 @@ public class BuyCreditActivity extends ActionBarActivity {
             public void onErrorResponse(VolleyError error) {
                 mLoadingDialog.dismiss();
                 error.printStackTrace();
+                failedDialog.setMessage(R.string.error_network).show();
 
             }
         });
