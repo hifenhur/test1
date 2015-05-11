@@ -14,7 +14,7 @@ public class GlobalParameters {
 
     }
 
-    public String defaultUrl = "http://192.168.0.12:3000";
+    public String defaultUrl = "http://torres.expark.com.br:3000";
 
     public String sellerUUID = null;
 

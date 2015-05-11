@@ -4,6 +4,7 @@ package expark.com.totenclient;
  * Created by hifenhur on 09/03/15.
  */
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -53,12 +54,11 @@ public class SettingsActivity extends PreferenceActivity
         // Set the listener to watch for value changes.
         preference.setOnPreferenceChangeListener(this);
 
-        // Trigger the listener immediately with the preference's
-        // current value.
-        onPreferenceChange(preference,
-                PreferenceManager
-                        .getDefaultSharedPreferences(preference.getContext())
-                        .getString(preference.getKey(), ""));
+        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(preference.getContext()).edit();
+        editor.putString(getString(R.string.pref_pdv_uuid), "justiça de Deus");
+        editor.commit();
+
+        onPreferenceChange(preference, PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getString(getString(R.string.pref_pdv_uuid), "error"));
     }
 
     @Override
@@ -76,6 +76,11 @@ public class SettingsActivity extends PreferenceActivity
         } else {
             // For other preferences, set the summary to the value's simple string representation.
             preference.setSummary(stringValue);
+
+            if (preference.equals(PreferenceManager.getDefaultSharedPreferences(preference.getContext()))){
+                preference.setSummary(PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getString(getString(R.string.pref_pdv_uuid), "error"));
+
+            }
 
         }
         return true;
