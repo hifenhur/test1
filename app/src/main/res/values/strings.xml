@@ -42,6 +42,7 @@
     <string name="qrcode_inserted">O Número do Cartão foi preenchido, agora insira quanto crédito deseja comprar</string>
     <string name="card_recharge">Recarregar Cartão</string>
     <string name="back_title">Voltar</string>
+    <string name="error_network">Ocorreu um erro na operação</string>
 
 
 </resources>

@@ -210,6 +210,7 @@ public class QrcodeCardActivity extends ActionBarActivity implements QRCodeReade
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    failedDialog.setMessage(R.string.error_network).show();
 
                 }
 
@@ -219,6 +220,7 @@ public class QrcodeCardActivity extends ActionBarActivity implements QRCodeReade
             @Override
             public void onErrorResponse(VolleyError error) {
                 mLoadingDialog.dismiss();
+                failedDialog.setMessage(R.string.error_network).show();
                 error.printStackTrace();
 
             }
