@@ -152,7 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Adicionar Placa"
+                android:text="Adicionar Placa de Carro e/ou Moto"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:id="@+id/textView13" />
@@ -185,7 +185,7 @@
             <CheckBox
                 android:layout_width="192dp"
                 android:layout_height="wrap_content"
-                android:text="Pagamento automático"
+                android:text="Débito Automático"
                 android:id="@+id/auto_debit"
                 android:layout_gravity="center_horizontal"
                 android:checked="false"

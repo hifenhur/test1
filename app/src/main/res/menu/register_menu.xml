@@ -2,7 +2,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".RegisterActivity">
-    <item android:id="@+id/action_search"
-        android:icon="@drawable/abc_ic_ab_back_mtrl_am_alpha"
-        android:title="@string/action_sign_in" android:showAsAction="always"  />
 </menu>

@@ -6,9 +6,6 @@
         android:showAsAction="always"
         android:icon="@drawable/apptheme_btn_rating_star_on_pressed_holo_light"
         android:title="Refresh"/>
-    <item
-        android:id="@+id/action_settings"
-        android:title="Settings">
-    </item>
+
 
 </menu> 

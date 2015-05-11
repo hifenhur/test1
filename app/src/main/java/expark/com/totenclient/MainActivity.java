@@ -5,11 +5,14 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,11 +22,21 @@ import java.util.Date;
 public class MainActivity extends Activity {
 
     private int title_click;
+    String mVersionName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView versionEditText = (TextView)findViewById(R.id.version);
+        try {
+            mVersionName = this.getPackageManager()
+                    .getPackageInfo(this.getPackageName(), 0).versionName;
+            versionEditText.setText(mVersionName);
+
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         title_click = 0;
 
